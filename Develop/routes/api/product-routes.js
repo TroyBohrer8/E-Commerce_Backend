@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((products) => res.json(products))
+    .then((product) => res.json(product))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -47,12 +47,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((products) => {
-      if (!products) {
+    .then((product) => {
+      if (!product) {
         res.status(404).json({ message: "No product found with this id" });
         return;
       }
-      res.json(products);
+      res.json(product);
     })
     .catch((err) => {
       console.log(err);
